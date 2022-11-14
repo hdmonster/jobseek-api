@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Job;
-use App\Http\Requests\StoreJobRequest;
-use App\Http\Requests\UpdateJobRequest;
+use App\Models\JobApplicant;
+use App\Http\Requests\StoreJobApplicantRequest;
+use App\Http\Requests\UpdateJobApplicantRequest;
 
-class JobController extends Controller
+class JobApplicantController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,9 @@ class JobController extends Controller
      */
     public function index()
     {
-        //
+        return JobApplicant::with([
+            'user', 'jobVacancy'
+        ])->get();
     }
 
     /**
@@ -31,10 +33,10 @@ class JobController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreJobRequest  $request
+     * @param  \App\Http\Requests\StoreJobApplicantRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreJobRequest $request)
+    public function store(StoreJobApplicantRequest $request)
     {
         //
     }
@@ -42,21 +44,24 @@ class JobController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Job  $job
+     * @param  \App\Models\JobApplicant  $jobApplicant
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        return Job::where('specialization_id', $id)->get();
+        return JobApplicant::with([
+            'user', 'jobVacancy'
+        ])->where('id', $id)
+        ->first();
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Job  $job
+     * @param  \App\Models\JobApplicant  $jobApplicant
      * @return \Illuminate\Http\Response
      */
-    public function edit(Job $job)
+    public function edit(JobApplicant $jobApplicant)
     {
         //
     }
@@ -64,11 +69,11 @@ class JobController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateJobRequest  $request
-     * @param  \App\Models\Job  $job
+     * @param  \App\Http\Requests\UpdateJobApplicantRequest  $request
+     * @param  \App\Models\JobApplicant  $jobApplicant
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateJobRequest $request, Job $job)
+    public function update(UpdateJobApplicantRequest $request, JobApplicant $jobApplicant)
     {
         //
     }
@@ -76,10 +81,10 @@ class JobController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Job  $job
+     * @param  \App\Models\JobApplicant  $jobApplicant
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Job $job)
+    public function destroy(JobApplicant $jobApplicant)
     {
         //
     }

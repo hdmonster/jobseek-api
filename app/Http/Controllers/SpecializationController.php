@@ -15,7 +15,7 @@ class SpecializationController extends Controller
      */
     public function index()
     {
-        //
+        return Specialization::orderBy('name', 'asc')->get();
     }
 
     /**

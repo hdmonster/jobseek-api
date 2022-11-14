@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Specialization;
 use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class SpecializationSeeder extends Seeder
 {
@@ -14,6 +15,9 @@ class SpecializationSeeder extends Seeder
      */
     public function run()
     {
-        //
+        Specialization::create([
+            'icon' => 'https://thumbs.dreamstime.com/b/circle-technology-vector-icon-stock-illustration-you-can-use-tech-logos-etc-start-editing-logo-your-company-177105940.jpg',
+            'name' => 'Technology'
+        ]);
     }
 }
