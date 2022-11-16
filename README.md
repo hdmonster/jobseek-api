@@ -1,14 +1,14 @@
 
 # JobSeek API
 
-This API service provided for JobSeek mobile app developed by the dev (weedz)
+This API service is provided for JobSeek mobile app developed by the dev (weedz)
 
 
 
 
 ## API Usage
 
-**User**a
+**User**
 
 Authentication
 
@@ -43,7 +43,7 @@ Company Specialization --> Company Profile 1
 
 Page                    | URL                               | Id
 -------------           | -------------                     | -------------  
-Company Specialization  | /api/specializations              | Job Id 
+Company Specialization  | /api/specializations              | N/A 
 Home Company            | /api/profile/specialization/{id}  | Specialization Id
-Search Company          | /api/specializations              | User Id
+Search Company          | /api/specializations              | N/A
 Company Profile 1       | /api/companies/{id}               | Company Id
