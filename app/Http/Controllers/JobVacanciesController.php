@@ -50,7 +50,7 @@ class JobVacanciesController extends Controller
         return DB::table('job_vacancies')
                     ->join('jobs', 'job_vacancies.job_id', 'jobs.id')
                     ->join('companies', 'job_vacancies.company_id', 'companies.id')
-                    ->select('job_vacancies.id', 'job_vacancies.name as position', 'companies.name as company_name', 'companies.logo as company_logo')
+                    ->select('job_vacancies.id', 'job_vacancies.position', 'companies.name as company_name', 'companies.logo as company_logo')
                     ->where('jobs.specialization_id', $specializationId)
                     ->get();
     }
